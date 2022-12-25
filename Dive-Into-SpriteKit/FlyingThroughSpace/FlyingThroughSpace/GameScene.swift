@@ -7,7 +7,7 @@
 
 import SpriteKit
 import GameplayKit
-import CoreMotion //- Needed for tilt movement control
+//import CoreMotion //- Needed for tilt movement control
 
 class GameScene: SKScene {
     
@@ -15,7 +15,8 @@ class GameScene: SKScene {
     let player = SKSpriteNode(imageNamed: "player-rocket")
     var touchingPlayer: Bool = false
     
-    let motionManager = CMMotionManager()
+//    let motionManager = CMMotionManager()
+    var gameTimer: Timer?
         
     // MARK: - METHODS
     override func didMove(to view: SKView) {
@@ -34,11 +35,15 @@ class GameScene: SKScene {
         }
         
         // Player (Rocket Ship)
+        player.physicsBody = SKPhysicsBody(texture: player.texture!, size: player.size)
+        player.physicsBody?.affectedByGravity = false
         player.position.x = -300
         player.zPosition = 1
         addChild(player)
         
-        motionManager.startAccelerometerUpdates()
+//        motionManager.startAccelerometerUpdates()
+        
+        gameTimer = Timer.scheduledTimer(timeInterval: 0.35, target: self, selector: #selector(createEnemy), userInfo: nil, repeats: true)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -72,12 +77,28 @@ class GameScene: SKScene {
     override func update(_ currentTime: TimeInterval) {
         // this method is called before each frame is rendered
         
-        if let accelerometerData = motionManager.accelerometerData {
-            let changeX = CGFloat(accelerometerData.acceleration.y) * 100
-            let changeY = CGFloat(accelerometerData.acceleration.x) * 100
-            
-            player.position.x -= changeX
-            player.position.y += changeY
-        }
+        // Uncomment this code to implement tilt controls
+//        if let accelerometerData = motionManager.accelerometerData {
+//            let changeX = CGFloat(accelerometerData.acceleration.y) * 100
+//            let changeY = CGFloat(accelerometerData.acceleration.x) * 100
+//
+//            player.position.x -= changeX
+//            player.position.y += changeY
+//        }
+    }
+    
+    @objc func createEnemy() {
+        let randomDistribution = GKRandomDistribution(lowestValue: -350, highestValue: 350)
+        
+        let enemySprite = SKSpriteNode(imageNamed: "enemy-ship")
+        enemySprite.position = CGPoint(x: 1200, y: randomDistribution.nextInt())
+        enemySprite.name = "enemy"
+        enemySprite.zPosition = 1
+        addChild(enemySprite)
+        
+        enemySprite.physicsBody = SKPhysicsBody(texture: enemySprite.texture!, size: enemySprite.size)
+        enemySprite.physicsBody?.velocity = CGVector(dx: -500, dy: 0)
+        enemySprite.physicsBody?.linearDamping = 0
+        enemySprite.physicsBody?.affectedByGravity = false
     }
 }
