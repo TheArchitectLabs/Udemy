@@ -9,12 +9,19 @@ import SpriteKit
 import GameplayKit
 //import CoreMotion //- Needed for tilt movement control
 
+@objcMembers
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // MARK: - PROPERTIES
     let player = SKSpriteNode(imageNamed: "player-rocket")
     var touchingPlayer: Bool = false
     var gameTimer: Timer?
+    let scoreLabel = SKLabelNode(fontNamed: "AvenirNextCondensed-Bold")
+    var score = 0 {
+        didSet {
+            scoreLabel.text = "SCORE: \(score)"
+        }
+    }
     
 //    let motionManager = CMMotionManager()
         
@@ -41,6 +48,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.position.x = -300
         player.zPosition = 1
         addChild(player)
+        
+        // Score Label
+        scoreLabel.zPosition = 2
+        scoreLabel.position.y = 200
+        addChild(scoreLabel)
+        score = 0
         
 //        motionManager.startAccelerometerUpdates()
         
@@ -90,7 +103,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //        }
     }
     
-    @objc func createEnemy() {
+    func createEnemy() {
         let randomDistribution = GKRandomDistribution(lowestValue: -350, highestValue: 350)
         
         let enemySprite = SKSpriteNode(imageNamed: "enemy-ship")
