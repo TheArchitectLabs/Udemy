@@ -8,25 +8,34 @@
 import SpriteKit
 import GameplayKit
 
+let player = SKSpriteNode(imageNamed: "player-rocket")
+
 class GameScene: SKScene {
-    
+        
     override func didMove(to view: SKView) {
+        // this method is called when your game scene is ready to run
+        
+        // Background (Space Picture)
+        let background = SKSpriteNode(imageNamed: "space.jpg")
+        background.zPosition = -1
+        addChild(background)
+        
+        // Particles (Space Dust)
+        if let particles = SKEmitterNode(fileNamed: "SpaceDust") {
+            particles.position.x = 512
+            particles.advanceSimulationTime(10)
+            addChild(particles)
+        }
+        
+        // Player (Rocket Ship)
+        player.position.x = -300
+        player.zPosition = 1
+        addChild(player)
         
     }
     
-    func touchDown(atPoint pos : CGPoint) {
-
-    }
-    
-    func touchMoved(toPoint pos : CGPoint) {
-
-    }
-    
-    func touchUp(atPoint pos : CGPoint) {
-
-    }
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // this method is called when the user touches the screen
 
     }
     
@@ -35,14 +44,11 @@ class GameScene: SKScene {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-    }
-    
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // this method is called when the user stops touching the screen
         
     }
     
     override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
+        // this method is called before each frame is rendered
     }
 }

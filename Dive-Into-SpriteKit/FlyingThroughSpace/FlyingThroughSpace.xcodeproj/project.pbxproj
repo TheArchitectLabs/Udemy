@@ -22,6 +22,7 @@
 		C30BC2BA29587D6200F6AD12 /* overworld.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C30BC2B329587D6100F6AD12 /* overworld.mp3 */; };
 		C30BC2BB29587D6200F6AD12 /* bonus.wav in Resources */ = {isa = PBXBuildFile; fileRef = C30BC2B429587D6100F6AD12 /* bonus.wav */; };
 		C30BC2BC29587D6200F6AD12 /* upbeat-forever.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C30BC2B529587D6200F6AD12 /* upbeat-forever.mp3 */; };
+		C30BC2BF29587FA000F6AD12 /* SpaceDust.sks in Resources */ = {isa = PBXBuildFile; fileRef = C30BC2BE29587FA000F6AD12 /* SpaceDust.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		C30BC2B329587D6100F6AD12 /* overworld.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = overworld.mp3; sourceTree = "<group>"; };
 		C30BC2B429587D6100F6AD12 /* bonus.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bonus.wav; sourceTree = "<group>"; };
 		C30BC2B529587D6200F6AD12 /* upbeat-forever.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "upbeat-forever.mp3"; sourceTree = "<group>"; };
+		C30BC2BE29587FA000F6AD12 /* SpaceDust.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SpaceDust.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				C30BC29A29587BB700F6AD12 /* GameScene.sks */,
 				C30BC29C29587BB700F6AD12 /* Actions.sks */,
 				C30BC29E29587BB700F6AD12 /* GameScene.swift */,
+				C30BC2BE29587FA000F6AD12 /* SpaceDust.sks */,
 				C30BC2A029587BB700F6AD12 /* GameViewController.swift */,
 				C30BC2A229587BB700F6AD12 /* Main.storyboard */,
 				C30BC2A529587BB800F6AD12 /* Assets.xcassets */,
@@ -169,6 +172,7 @@
 				C30BC2A929587BB800F6AD12 /* LaunchScreen.storyboard in Resources */,
 				C30BC29D29587BB700F6AD12 /* Actions.sks in Resources */,
 				C30BC2BA29587D6200F6AD12 /* overworld.mp3 in Resources */,
+				C30BC2BF29587FA000F6AD12 /* SpaceDust.sks in Resources */,
 				C30BC2BC29587D6200F6AD12 /* upbeat-forever.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
