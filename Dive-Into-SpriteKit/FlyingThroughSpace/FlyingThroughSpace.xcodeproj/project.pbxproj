@@ -15,6 +15,13 @@
 		C30BC2A429587BB700F6AD12 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C30BC2A229587BB700F6AD12 /* Main.storyboard */; };
 		C30BC2A629587BB800F6AD12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C30BC2A529587BB800F6AD12 /* Assets.xcassets */; };
 		C30BC2A929587BB800F6AD12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C30BC2A729587BB800F6AD12 /* LaunchScreen.storyboard */; };
+		C30BC2B629587D6200F6AD12 /* exhilarate.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C30BC2AF29587D6000F6AD12 /* exhilarate.mp3 */; };
+		C30BC2B729587D6200F6AD12 /* firebrand.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C30BC2B029587D6100F6AD12 /* firebrand.mp3 */; };
+		C30BC2B829587D6200F6AD12 /* cyborg-ninja.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C30BC2B129587D6100F6AD12 /* cyborg-ninja.mp3 */; };
+		C30BC2B929587D6200F6AD12 /* explosion.wav in Resources */ = {isa = PBXBuildFile; fileRef = C30BC2B229587D6100F6AD12 /* explosion.wav */; };
+		C30BC2BA29587D6200F6AD12 /* overworld.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C30BC2B329587D6100F6AD12 /* overworld.mp3 */; };
+		C30BC2BB29587D6200F6AD12 /* bonus.wav in Resources */ = {isa = PBXBuildFile; fileRef = C30BC2B429587D6100F6AD12 /* bonus.wav */; };
+		C30BC2BC29587D6200F6AD12 /* upbeat-forever.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C30BC2B529587D6200F6AD12 /* upbeat-forever.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +34,13 @@
 		C30BC2A329587BB700F6AD12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C30BC2A529587BB800F6AD12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C30BC2A829587BB800F6AD12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C30BC2AF29587D6000F6AD12 /* exhilarate.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = exhilarate.mp3; sourceTree = "<group>"; };
+		C30BC2B029587D6100F6AD12 /* firebrand.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = firebrand.mp3; sourceTree = "<group>"; };
+		C30BC2B129587D6100F6AD12 /* cyborg-ninja.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "cyborg-ninja.mp3"; sourceTree = "<group>"; };
+		C30BC2B229587D6100F6AD12 /* explosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = explosion.wav; sourceTree = "<group>"; };
+		C30BC2B329587D6100F6AD12 /* overworld.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = overworld.mp3; sourceTree = "<group>"; };
+		C30BC2B429587D6100F6AD12 /* bonus.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bonus.wav; sourceTree = "<group>"; };
+		C30BC2B529587D6200F6AD12 /* upbeat-forever.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "upbeat-forever.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,8 +81,23 @@
 				C30BC2A229587BB700F6AD12 /* Main.storyboard */,
 				C30BC2A529587BB800F6AD12 /* Assets.xcassets */,
 				C30BC2A729587BB800F6AD12 /* LaunchScreen.storyboard */,
+				C30BC2BD29587D6A00F6AD12 /* Sounds */,
 			);
 			path = FlyingThroughSpace;
+			sourceTree = "<group>";
+		};
+		C30BC2BD29587D6A00F6AD12 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				C30BC2B429587D6100F6AD12 /* bonus.wav */,
+				C30BC2B129587D6100F6AD12 /* cyborg-ninja.mp3 */,
+				C30BC2AF29587D6000F6AD12 /* exhilarate.mp3 */,
+				C30BC2B229587D6100F6AD12 /* explosion.wav */,
+				C30BC2B029587D6100F6AD12 /* firebrand.mp3 */,
+				C30BC2B329587D6100F6AD12 /* overworld.mp3 */,
+				C30BC2B529587D6200F6AD12 /* upbeat-forever.mp3 */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,11 +158,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C30BC2B929587D6200F6AD12 /* explosion.wav in Resources */,
+				C30BC2B729587D6200F6AD12 /* firebrand.mp3 in Resources */,
+				C30BC2B829587D6200F6AD12 /* cyborg-ninja.mp3 in Resources */,
 				C30BC2A429587BB700F6AD12 /* Main.storyboard in Resources */,
+				C30BC2BB29587D6200F6AD12 /* bonus.wav in Resources */,
+				C30BC2B629587D6200F6AD12 /* exhilarate.mp3 in Resources */,
 				C30BC29B29587BB700F6AD12 /* GameScene.sks in Resources */,
 				C30BC2A629587BB800F6AD12 /* Assets.xcassets in Resources */,
 				C30BC2A929587BB800F6AD12 /* LaunchScreen.storyboard in Resources */,
 				C30BC29D29587BB700F6AD12 /* Actions.sks in Resources */,
+				C30BC2BA29587D6200F6AD12 /* overworld.mp3 in Resources */,
+				C30BC2BC29587D6200F6AD12 /* upbeat-forever.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
