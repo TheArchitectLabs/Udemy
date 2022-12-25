@@ -7,7 +7,6 @@
 
 import SpriteKit
 import GameplayKit
-//import CoreMotion //- Needed for tilt movement control
 
 @objcMembers
 class GameScene: SKScene, SKPhysicsContactDelegate {
@@ -22,8 +21,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             scoreLabel.text = "SCORE: \(score)"
         }
     }
-    
-//    let motionManager = CMMotionManager()
         
     // MARK: - METHODS
     override func didMove(to view: SKView) {
@@ -55,9 +52,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(scoreLabel)
         score = 0
         
-//        motionManager.startAccelerometerUpdates()
-        
-        gameTimer = Timer.scheduledTimer(timeInterval: 0.35, target: self, selector: #selector(createEnemy), userInfo: nil, repeats: true)
+        gameTimer = Timer.scheduledTimer(timeInterval: 0.45, target: self, selector: #selector(createEnemy), userInfo: nil, repeats: true)
         
         physicsWorld.contactDelegate = self
     }
@@ -92,15 +87,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func update(_ currentTime: TimeInterval) {
         // this method is called before each frame is rendered
-        
-        // Uncomment this code to implement tilt controls
-//        if let accelerometerData = motionManager.accelerometerData {
-//            let changeX = CGFloat(accelerometerData.acceleration.y) * 100
-//            let changeY = CGFloat(accelerometerData.acceleration.x) * 100
-//
-//            player.position.x -= changeX
-//            player.position.y += changeY
-//        }
+    
     }
     
     func createEnemy() {
@@ -113,12 +100,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(enemySprite)
         
         enemySprite.physicsBody = SKPhysicsBody(texture: enemySprite.texture!, size: enemySprite.size)
-        enemySprite.physicsBody?.velocity = CGVector(dx: -500, dy: 0)
+        enemySprite.physicsBody?.velocity = CGVector(dx: -400, dy: 0)
         enemySprite.physicsBody?.linearDamping = 0
         enemySprite.physicsBody?.affectedByGravity = false
         enemySprite.physicsBody?.categoryBitMask = 0
         
         enemySprite.physicsBody?.contactTestBitMask = 1
+        
+        createBonus()
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -133,6 +122,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func playerHit(_ node: SKNode) {
+        
+        if node.name == "bonus" {
+            score += 1
+            node.removeFromParent()
+            return
+        }
+        
         player.removeFromParent()
+    }
+    
+    func createBonus() {
+        let randomDistribution = GKRandomDistribution(lowestValue: -350, highestValue: 350)
+        
+        let bonusSprite = SKSpriteNode(imageNamed: "energy")
+        bonusSprite.position = CGPoint(x: 1200, y: randomDistribution.nextInt())
+        bonusSprite.name = "bonus"
+        bonusSprite.zPosition = 1
+        addChild(bonusSprite)
+        
+        bonusSprite.physicsBody = SKPhysicsBody(texture: bonusSprite.texture!, size: bonusSprite.size)
+        bonusSprite.physicsBody?.velocity = CGVector(dx: -500, dy: 0)
+        bonusSprite.physicsBody?.linearDamping = 0
+        bonusSprite.physicsBody?.affectedByGravity = false
+        bonusSprite.physicsBody?.categoryBitMask = 0
+        bonusSprite.physicsBody?.collisionBitMask = 0
+        
+        bonusSprite.physicsBody?.contactTestBitMask = 1
     }
 }
