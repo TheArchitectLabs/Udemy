@@ -9,14 +9,14 @@ import SpriteKit
 import GameplayKit
 //import CoreMotion //- Needed for tilt movement control
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // MARK: - PROPERTIES
     let player = SKSpriteNode(imageNamed: "player-rocket")
     var touchingPlayer: Bool = false
+    var gameTimer: Timer?
     
 //    let motionManager = CMMotionManager()
-    var gameTimer: Timer?
         
     // MARK: - METHODS
     override func didMove(to view: SKView) {
@@ -36,6 +36,7 @@ class GameScene: SKScene {
         
         // Player (Rocket Ship)
         player.physicsBody = SKPhysicsBody(texture: player.texture!, size: player.size)
+        player.physicsBody?.categoryBitMask = 1
         player.physicsBody?.affectedByGravity = false
         player.position.x = -300
         player.zPosition = 1
@@ -44,6 +45,8 @@ class GameScene: SKScene {
 //        motionManager.startAccelerometerUpdates()
         
         gameTimer = Timer.scheduledTimer(timeInterval: 0.35, target: self, selector: #selector(createEnemy), userInfo: nil, repeats: true)
+        
+        physicsWorld.contactDelegate = self
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -100,5 +103,23 @@ class GameScene: SKScene {
         enemySprite.physicsBody?.velocity = CGVector(dx: -500, dy: 0)
         enemySprite.physicsBody?.linearDamping = 0
         enemySprite.physicsBody?.affectedByGravity = false
+        enemySprite.physicsBody?.categoryBitMask = 0
+        
+        enemySprite.physicsBody?.contactTestBitMask = 1
+    }
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        guard let nodeA = contact.bodyA.node else { return }
+        guard let nodeB = contact.bodyB.node else { return }
+        
+        if nodeA == player {
+            playerHit(nodeB)
+        } else {
+            playerHit(nodeA)
+        }
+    }
+    
+    func playerHit(_ node: SKNode) {
+        player.removeFromParent()
     }
 }
