@@ -29,6 +29,7 @@
 		C30BC2FE2959E11800F6AD12 /* beep.wav in Resources */ = {isa = PBXBuildFile; fileRef = C30BC2F02959E11800F6AD12 /* beep.wav */; };
 		C30BC2FF2959E11800F6AD12 /* cool-vibes.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C30BC2F12959E11800F6AD12 /* cool-vibes.mp3 */; };
 		C30BC3002959E11800F6AD12 /* lobby-time.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C30BC2F22959E11800F6AD12 /* lobby-time.mp3 */; };
+		C30BC3032959F0E100F6AD12 /* Sparks.sks in Resources */ = {isa = PBXBuildFile; fileRef = C30BC3022959F0E100F6AD12 /* Sparks.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		C30BC2F02959E11800F6AD12 /* beep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = beep.wav; sourceTree = "<group>"; };
 		C30BC2F12959E11800F6AD12 /* cool-vibes.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "cool-vibes.mp3"; sourceTree = "<group>"; };
 		C30BC2F22959E11800F6AD12 /* lobby-time.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "lobby-time.mp3"; sourceTree = "<group>"; };
+		C30BC3022959F0E100F6AD12 /* Sparks.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Sparks.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				C30BC2D02959DD8200F6AD12 /* GameScene.sks */,
 				C30BC2D22959DD8200F6AD12 /* Actions.sks */,
 				C30BC2D42959DD8200F6AD12 /* GameScene.swift */,
+				C30BC3022959F0E100F6AD12 /* Sparks.sks */,
 				C30BC2D62959DD8200F6AD12 /* GameViewController.swift */,
 				C30BC2D82959DD8200F6AD12 /* Main.storyboard */,
 				C30BC2DB2959DD8300F6AD12 /* Assets.xcassets */,
@@ -192,6 +195,7 @@
 				C30BC2F92959E11800F6AD12 /* correct-2.wav in Resources */,
 				C30BC2D12959DD8200F6AD12 /* GameScene.sks in Resources */,
 				C30BC2DC2959DD8300F6AD12 /* Assets.xcassets in Resources */,
+				C30BC3032959F0E100F6AD12 /* Sparks.sks in Resources */,
 				C30BC2DF2959DD8300F6AD12 /* LaunchScreen.storyboard in Resources */,
 				C30BC3002959E11800F6AD12 /* lobby-time.mp3 in Resources */,
 				C30BC2FD2959E11800F6AD12 /* correct-4.wav in Resources */,
