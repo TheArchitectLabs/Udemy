@@ -12,11 +12,23 @@ import GameplayKit
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // MARK: - PROPERTIES
+    
+    // Sprites
+    let background = SKSpriteNode(imageNamed: "space.jpg")
     let player = SKSpriteNode(imageNamed: "player-rocket")
+    let objects: [String] = ["enemy-ship", "asteroid", "space-junk", "energy", "star"]
+    let gameOver = SKSpriteNode(imageNamed: "gameOver-2")
+    
+    // Sounds
+    let music = SKAudioNode(fileNamed: "cyborg-ninja.mp3")
+    let bonusSound = SKAction.playSoundFileNamed("bonus.wav", waitForCompletion: false)
+    let explosion = SKAction.playSoundFileNamed("explosion.wav", waitForCompletion: false)
+    
+    
     var touchingPlayer: Bool = false
     var gameTimer: Timer?
     let scoreLabel = SKLabelNode(fontNamed: "AvenirNextCondensed-Bold")
-    let music = SKAudioNode(fileNamed: "cyborg-ninja.mp3")
+    
     var score = 0 {
         didSet {
             scoreLabel.text = "SCORE: \(score)"
@@ -28,7 +40,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // this method is called when your game scene is ready to run
         
         // Background (Space Picture)
-        let background = SKSpriteNode(imageNamed: "space.jpg")
         background.zPosition = -1
         addChild(background)
         
@@ -53,12 +64,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(scoreLabel)
         score = 0
         
-        gameTimer = Timer.scheduledTimer(timeInterval: 0.45, target: self, selector: #selector(createEnemy), userInfo: nil, repeats: true)
+        // Music
+        addChild(music)
+
+        // Timer
+        gameTimer = Timer.scheduledTimer(timeInterval: 0.45, target: self, selector: #selector(createObject), userInfo: nil, repeats: true)
         
         physicsWorld.contactDelegate = self
         
-        // Music
-        addChild(music)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -111,24 +124,31 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    func createEnemy() {
-        let randomDistribution = GKRandomDistribution(lowestValue: -350, highestValue: 350)
+    func createObject() {
+        let randomEnemyDistribution = GKRandomDistribution(lowestValue: -350, highestValue: 350)
+        let randomSpriteChosen = Int.random(in: 0...4)
+        let Sprite = SKSpriteNode(imageNamed: objects[randomSpriteChosen])
+    
+        Sprite.position = CGPoint(x: 1200, y: randomEnemyDistribution.nextInt())
+                                                      
+        if objects[randomSpriteChosen] == "star" {
+            Sprite.name = "star"
+        } else if objects[randomSpriteChosen] == "energy" {
+            Sprite.name = "energy"
+        } else {
+            Sprite.name = "enemy"
+        }
+
+        Sprite.zPosition = 1
+        addChild(Sprite)
         
-        let enemySprite = SKSpriteNode(imageNamed: "enemy-ship")
-        enemySprite.position = CGPoint(x: 1200, y: randomDistribution.nextInt())
-        enemySprite.name = "enemy"
-        enemySprite.zPosition = 1
-        addChild(enemySprite)
+        Sprite.physicsBody = SKPhysicsBody(texture: Sprite.texture!, size: Sprite.size)
+        Sprite.physicsBody?.velocity = CGVector(dx: -400, dy: 0)
+        Sprite.physicsBody?.linearDamping = 0
+        Sprite.physicsBody?.affectedByGravity = false
+        Sprite.physicsBody?.categoryBitMask = 0
         
-        enemySprite.physicsBody = SKPhysicsBody(texture: enemySprite.texture!, size: enemySprite.size)
-        enemySprite.physicsBody?.velocity = CGVector(dx: -400, dy: 0)
-        enemySprite.physicsBody?.linearDamping = 0
-        enemySprite.physicsBody?.affectedByGravity = false
-        enemySprite.physicsBody?.categoryBitMask = 0
-        
-        enemySprite.physicsBody?.contactTestBitMask = 1
-        
-        createBonus()
+        Sprite.physicsBody?.contactTestBitMask = 1
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -144,9 +164,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func playerHit(_ node: SKNode) {
         
-        if node.name == "bonus" {
+        if node.name == "star" {
+            score += 2
+            run(bonusSound)
+            node.removeFromParent()
+            return
+        }
+        
+        if node.name == "energy" {
             score += 1
-            let bonusSound = SKAction.playSoundFileNamed("bonus.wav", waitForCompletion: false)
             run(bonusSound)
             node.removeFromParent()
             return
@@ -161,38 +187,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.removeFromParent()
         music.removeFromParent()
         
-        let gameOver = SKSpriteNode(imageNamed: "gameOver-2")
         gameOver.zPosition = 10
         addChild(gameOver)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            
             if let scene = GameScene(fileNamed: "GameScene") {
                 scene.scaleMode = .aspectFill
                 self.view?.presentScene(scene)
             }
         }
-        
-        let explosion = SKAction.playSoundFileNamed("explosion.wav", waitForCompletion: false)
-        run(explosion)
-    }
     
-    func createBonus() {
-        let randomDistribution = GKRandomDistribution(lowestValue: -350, highestValue: 350)
-        
-        let bonusSprite = SKSpriteNode(imageNamed: "energy")
-        bonusSprite.position = CGPoint(x: 1200, y: randomDistribution.nextInt())
-        bonusSprite.name = "bonus"
-        bonusSprite.zPosition = 1
-        addChild(bonusSprite)
-        
-        bonusSprite.physicsBody = SKPhysicsBody(texture: bonusSprite.texture!, size: bonusSprite.size)
-        bonusSprite.physicsBody?.velocity = CGVector(dx: -500, dy: 0)
-        bonusSprite.physicsBody?.linearDamping = 0
-        bonusSprite.physicsBody?.affectedByGravity = false
-        bonusSprite.physicsBody?.categoryBitMask = 0
-        bonusSprite.physicsBody?.collisionBitMask = 0
-        
-        bonusSprite.physicsBody?.contactTestBitMask = 1
+        run(explosion)
     }
 }
