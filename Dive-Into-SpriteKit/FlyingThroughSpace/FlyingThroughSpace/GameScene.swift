@@ -16,6 +16,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var touchingPlayer: Bool = false
     var gameTimer: Timer?
     let scoreLabel = SKLabelNode(fontNamed: "AvenirNextCondensed-Bold")
+    let music = SKAudioNode(fileNamed: "cyborg-ninja.mp3")
     var score = 0 {
         didSet {
             scoreLabel.text = "SCORE: \(score)"
@@ -55,6 +56,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         gameTimer = Timer.scheduledTimer(timeInterval: 0.45, target: self, selector: #selector(createEnemy), userInfo: nil, repeats: true)
         
         physicsWorld.contactDelegate = self
+        
+        // Music
+        addChild(music)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -87,7 +91,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func update(_ currentTime: TimeInterval) {
         // this method is called before each frame is rendered
+        
+        for node in children {
+            if node.position.x < -700 {
+                node.removeFromParent()
+            }
+        }
     
+        if player.position.x < -400 {
+            player.position.x = -400
+        } else if player.position.x > 400 {
+            player.position.x = 400
+        }
+        
+        if player.position.y < -300 {
+            player.position.y = -300
+        } else if player.position.y > 300 {
+            player.position.y = 300
+        }
     }
     
     func createEnemy() {
@@ -125,11 +146,35 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if node.name == "bonus" {
             score += 1
+            let bonusSound = SKAction.playSoundFileNamed("bonus.wav", waitForCompletion: false)
+            run(bonusSound)
             node.removeFromParent()
             return
         }
         
+        if let particles = SKEmitterNode(fileNamed: "Explosion.sks") {
+            particles.position = player.position
+            particles.zPosition = 3
+            addChild(particles)
+        }
+        
         player.removeFromParent()
+        music.removeFromParent()
+        
+        let gameOver = SKSpriteNode(imageNamed: "gameOver-2")
+        gameOver.zPosition = 10
+        addChild(gameOver)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            
+            if let scene = GameScene(fileNamed: "GameScene") {
+                scene.scaleMode = .aspectFill
+                self.view?.presentScene(scene)
+            }
+        }
+        
+        let explosion = SKAction.playSoundFileNamed("explosion.wav", waitForCompletion: false)
+        run(explosion)
     }
     
     func createBonus() {
