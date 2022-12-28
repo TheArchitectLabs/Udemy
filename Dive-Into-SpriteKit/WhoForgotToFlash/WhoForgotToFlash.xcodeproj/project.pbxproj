@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		C30BC2CF2959DD8200F6AD12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30BC2CE2959DD8200F6AD12 /* AppDelegate.swift */; };
 		C30BC2D12959DD8200F6AD12 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C30BC2D02959DD8200F6AD12 /* GameScene.sks */; };
-		C30BC2D32959DD8200F6AD12 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = C30BC2D22959DD8200F6AD12 /* Actions.sks */; };
 		C30BC2D52959DD8200F6AD12 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30BC2D42959DD8200F6AD12 /* GameScene.swift */; };
 		C30BC2D72959DD8200F6AD12 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30BC2D62959DD8200F6AD12 /* GameViewController.swift */; };
 		C30BC2DA2959DD8200F6AD12 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C30BC2D82959DD8200F6AD12 /* Main.storyboard */; };
@@ -30,13 +29,14 @@
 		C30BC2FF2959E11800F6AD12 /* cool-vibes.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C30BC2F12959E11800F6AD12 /* cool-vibes.mp3 */; };
 		C30BC3002959E11800F6AD12 /* lobby-time.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C30BC2F22959E11800F6AD12 /* lobby-time.mp3 */; };
 		C30BC3032959F0E100F6AD12 /* Sparks.sks in Resources */ = {isa = PBXBuildFile; fileRef = C30BC3022959F0E100F6AD12 /* Sparks.sks */; };
+		C30BC305295C657000F6AD12 /* StartScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30BC304295C657000F6AD12 /* StartScene.swift */; };
+		C30BC307295C66C400F6AD12 /* StartScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C30BC306295C66C400F6AD12 /* StartScene.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C30BC2CB2959DD8200F6AD12 /* WhoForgotToFlash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhoForgotToFlash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C30BC2CE2959DD8200F6AD12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C30BC2D02959DD8200F6AD12 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		C30BC2D22959DD8200F6AD12 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		C30BC2D42959DD8200F6AD12 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		C30BC2D62959DD8200F6AD12 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		C30BC2D92959DD8200F6AD12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -57,6 +57,8 @@
 		C30BC2F12959E11800F6AD12 /* cool-vibes.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "cool-vibes.mp3"; sourceTree = "<group>"; };
 		C30BC2F22959E11800F6AD12 /* lobby-time.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "lobby-time.mp3"; sourceTree = "<group>"; };
 		C30BC3022959F0E100F6AD12 /* Sparks.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Sparks.sks; sourceTree = "<group>"; };
+		C30BC304295C657000F6AD12 /* StartScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScene.swift; sourceTree = "<group>"; };
+		C30BC306295C66C400F6AD12 /* StartScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StartScene.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,13 +92,14 @@
 			isa = PBXGroup;
 			children = (
 				C30BC2CE2959DD8200F6AD12 /* AppDelegate.swift */,
+				C30BC306295C66C400F6AD12 /* StartScene.sks */,
+				C30BC304295C657000F6AD12 /* StartScene.swift */,
 				C30BC2D02959DD8200F6AD12 /* GameScene.sks */,
-				C30BC2D22959DD8200F6AD12 /* Actions.sks */,
 				C30BC2D42959DD8200F6AD12 /* GameScene.swift */,
-				C30BC3022959F0E100F6AD12 /* Sparks.sks */,
 				C30BC2D62959DD8200F6AD12 /* GameViewController.swift */,
-				C30BC2D82959DD8200F6AD12 /* Main.storyboard */,
+				C30BC3022959F0E100F6AD12 /* Sparks.sks */,
 				C30BC2DB2959DD8300F6AD12 /* Assets.xcassets */,
+				C30BC2D82959DD8200F6AD12 /* Main.storyboard */,
 				C30BC2DD2959DD8300F6AD12 /* LaunchScreen.storyboard */,
 				C30BC3012959E11E00F6AD12 /* Sounds */,
 			);
@@ -182,6 +185,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C30BC307295C66C400F6AD12 /* StartScene.sks in Resources */,
 				C30BC2DA2959DD8200F6AD12 /* Main.storyboard in Resources */,
 				C30BC2F72959E11800F6AD12 /* wrong-4.wav in Resources */,
 				C30BC2FC2959E11800F6AD12 /* easy-lemon.mp3 in Resources */,
@@ -201,7 +205,6 @@
 				C30BC2FD2959E11800F6AD12 /* correct-4.wav in Resources */,
 				C30BC2F82959E11800F6AD12 /* correct-1.wav in Resources */,
 				C30BC2FA2959E11800F6AD12 /* correct-3.wav in Resources */,
-				C30BC2D32959DD8200F6AD12 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +217,7 @@
 			files = (
 				C30BC2D52959DD8200F6AD12 /* GameScene.swift in Sources */,
 				C30BC2D72959DD8200F6AD12 /* GameViewController.swift in Sources */,
+				C30BC305295C657000F6AD12 /* StartScene.swift in Sources */,
 				C30BC2CF2959DD8200F6AD12 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

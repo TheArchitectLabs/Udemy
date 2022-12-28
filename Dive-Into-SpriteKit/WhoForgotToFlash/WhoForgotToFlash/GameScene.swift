@@ -19,6 +19,7 @@ class GameScene: SKScene {
     let scoreLabel = SKLabelNode(fontNamed: "Optima-ExtraBlack")
     var timeLabel = SKLabelNode(fontNamed: "Optima-ExtraBlack")
     let headerLabel = SKLabelNode(fontNamed: "Optima-ExtraBlack")
+    let hiScoreLabel = SKLabelNode(fontNamed: "Optima-ExtraBlack")
     let gameOver = SKSpriteNode(imageNamed: "gameOver1")
     
     // Sounds
@@ -36,9 +37,14 @@ class GameScene: SKScene {
     var answerArray = [SKSpriteNode]()
     var itemsToShow = 0
     
+    let defaults = UserDefaults.standard
+    var hiScore: Int = 0
+    
+    
     // MARK: - METHODS
     override func didMove(to view: SKView) {
         // this method is called when your game scene is ready to run
+        hiScore = UserDefaults.standard.integer(forKey: "hiScore")
         
         // Score, Header, and Time
         scoreLabel.position = CGPoint(x: -480, y:  330)
@@ -52,6 +58,11 @@ class GameScene: SKScene {
         headerLabel.position = CGPoint(x: 0, y: 330)
         headerLabel.text = "Who Forgot To Flash?"
         headerLabel.zPosition = 1
+        
+        hiScoreLabel.position = CGPoint(x: -480, y: -330)
+        hiScoreLabel.horizontalAlignmentMode = .left
+        hiScoreLabel.text = "High Score: \(hiScore)"
+        hiScoreLabel.zPosition = 1
 
         // Background
         background.name = "background"
@@ -61,11 +72,13 @@ class GameScene: SKScene {
         background.addChild(headerLabel)
         background.addChild(timeLabel)
         background.addChild(music)
+        background.addChild(hiScoreLabel)
                 
         createGrid()
         createLevel()
         
         score = 0
+        hiScore = defaults.integer(forKey: "hiscore")
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -178,6 +191,11 @@ class GameScene: SKScene {
             startTime += 10
             run(SKAction.playSoundFileNamed("correct-3", waitForCompletion: false))
             
+            if score > hiScore {
+                UserDefaults.standard.setValue(score, forKey: "hiScore")
+                hiScoreLabel.text = "High Score: \(hiScore)"
+            }
+            
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 sparks.removeFromParent()
                 self.level += 1
@@ -186,6 +204,8 @@ class GameScene: SKScene {
         }
         
         isUserInteractionEnabled = false
+        
+        
     }
     
     func wrongAnswer(node: SKNode) {
