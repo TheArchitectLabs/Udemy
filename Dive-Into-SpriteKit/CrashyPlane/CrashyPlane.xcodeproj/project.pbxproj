@@ -21,6 +21,7 @@
 		C30BC33B295F11D300F6AD12 /* salty-ditty.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C30BC334295F11D300F6AD12 /* salty-ditty.mp3 */; };
 		C30BC33C295F11D300F6AD12 /* theme-for-harold.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C30BC335295F11D300F6AD12 /* theme-for-harold.mp3 */; };
 		C30BC33D295F11D300F6AD12 /* pixelland.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C30BC336295F11D300F6AD12 /* pixelland.mp3 */; };
+		C30BC33F295F2F1D00F6AD12 /* PlayerExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = C30BC33E295F2F1D00F6AD12 /* PlayerExplosion.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		C30BC334295F11D300F6AD12 /* salty-ditty.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "salty-ditty.mp3"; sourceTree = "<group>"; };
 		C30BC335295F11D300F6AD12 /* theme-for-harold.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "theme-for-harold.mp3"; sourceTree = "<group>"; };
 		C30BC336295F11D300F6AD12 /* pixelland.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pixelland.mp3; sourceTree = "<group>"; };
+		C30BC33E295F2F1D00F6AD12 /* PlayerExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlayerExplosion.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				C30BC318295F108000F6AD12 /* AppDelegate.swift */,
 				C30BC31A295F108000F6AD12 /* GameScene.sks */,
 				C30BC31E295F108000F6AD12 /* GameScene.swift */,
+				C30BC33E295F2F1D00F6AD12 /* PlayerExplosion.sks */,
 				C30BC320295F108000F6AD12 /* GameViewController.swift */,
 				C30BC32F295F11A600F6AD12 /* Sounds */,
 				C30BC325295F108100F6AD12 /* Assets.xcassets */,
@@ -155,6 +158,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C30BC33F295F2F1D00F6AD12 /* PlayerExplosion.sks in Resources */,
 				C30BC33C295F11D300F6AD12 /* theme-for-harold.mp3 in Resources */,
 				C30BC338295F11D300F6AD12 /* explosion.wav in Resources */,
 				C30BC33B295F11D300F6AD12 /* salty-ditty.mp3 in Resources */,
