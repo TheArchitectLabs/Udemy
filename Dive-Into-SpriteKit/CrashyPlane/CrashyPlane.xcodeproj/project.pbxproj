@@ -76,8 +76,8 @@
 				C30BC31E295F108000F6AD12 /* GameScene.swift */,
 				C30BC320295F108000F6AD12 /* GameViewController.swift */,
 				C30BC32F295F11A600F6AD12 /* Sounds */,
-				C30BC322295F108000F6AD12 /* Main.storyboard */,
 				C30BC325295F108100F6AD12 /* Assets.xcassets */,
+				C30BC322295F108000F6AD12 /* Main.storyboard */,
 				C30BC327295F108100F6AD12 /* LaunchScreen.storyboard */,
 			);
 			path = CrashyPlane;
