@@ -14,6 +14,13 @@
 		C30BC324295F108000F6AD12 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C30BC322295F108000F6AD12 /* Main.storyboard */; };
 		C30BC326295F108100F6AD12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C30BC325295F108100F6AD12 /* Assets.xcassets */; };
 		C30BC329295F108100F6AD12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C30BC327295F108100F6AD12 /* LaunchScreen.storyboard */; };
+		C30BC337295F11D300F6AD12 /* balloon-game.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C30BC330295F11D200F6AD12 /* balloon-game.mp3 */; };
+		C30BC338295F11D300F6AD12 /* explosion.wav in Resources */ = {isa = PBXBuildFile; fileRef = C30BC331295F11D200F6AD12 /* explosion.wav */; };
+		C30BC339295F11D300F6AD12 /* the-hero.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C30BC332295F11D200F6AD12 /* the-hero.mp3 */; };
+		C30BC33A295F11D300F6AD12 /* score.wav in Resources */ = {isa = PBXBuildFile; fileRef = C30BC333295F11D200F6AD12 /* score.wav */; };
+		C30BC33B295F11D300F6AD12 /* salty-ditty.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C30BC334295F11D300F6AD12 /* salty-ditty.mp3 */; };
+		C30BC33C295F11D300F6AD12 /* theme-for-harold.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C30BC335295F11D300F6AD12 /* theme-for-harold.mp3 */; };
+		C30BC33D295F11D300F6AD12 /* pixelland.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C30BC336295F11D300F6AD12 /* pixelland.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +32,13 @@
 		C30BC323295F108000F6AD12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C30BC325295F108100F6AD12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C30BC328295F108100F6AD12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C30BC330295F11D200F6AD12 /* balloon-game.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "balloon-game.mp3"; sourceTree = "<group>"; };
+		C30BC331295F11D200F6AD12 /* explosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = explosion.wav; sourceTree = "<group>"; };
+		C30BC332295F11D200F6AD12 /* the-hero.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "the-hero.mp3"; sourceTree = "<group>"; };
+		C30BC333295F11D200F6AD12 /* score.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = score.wav; sourceTree = "<group>"; };
+		C30BC334295F11D300F6AD12 /* salty-ditty.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "salty-ditty.mp3"; sourceTree = "<group>"; };
+		C30BC335295F11D300F6AD12 /* theme-for-harold.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "theme-for-harold.mp3"; sourceTree = "<group>"; };
+		C30BC336295F11D300F6AD12 /* pixelland.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pixelland.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,11 +75,26 @@
 				C30BC31A295F108000F6AD12 /* GameScene.sks */,
 				C30BC31E295F108000F6AD12 /* GameScene.swift */,
 				C30BC320295F108000F6AD12 /* GameViewController.swift */,
+				C30BC32F295F11A600F6AD12 /* Sounds */,
 				C30BC322295F108000F6AD12 /* Main.storyboard */,
 				C30BC325295F108100F6AD12 /* Assets.xcassets */,
 				C30BC327295F108100F6AD12 /* LaunchScreen.storyboard */,
 			);
 			path = CrashyPlane;
+			sourceTree = "<group>";
+		};
+		C30BC32F295F11A600F6AD12 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				C30BC330295F11D200F6AD12 /* balloon-game.mp3 */,
+				C30BC331295F11D200F6AD12 /* explosion.wav */,
+				C30BC336295F11D300F6AD12 /* pixelland.mp3 */,
+				C30BC334295F11D300F6AD12 /* salty-ditty.mp3 */,
+				C30BC333295F11D200F6AD12 /* score.wav */,
+				C30BC332295F11D200F6AD12 /* the-hero.mp3 */,
+				C30BC335295F11D300F6AD12 /* theme-for-harold.mp3 */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,8 +155,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C30BC33C295F11D300F6AD12 /* theme-for-harold.mp3 in Resources */,
+				C30BC338295F11D300F6AD12 /* explosion.wav in Resources */,
+				C30BC33B295F11D300F6AD12 /* salty-ditty.mp3 in Resources */,
+				C30BC33A295F11D300F6AD12 /* score.wav in Resources */,
+				C30BC339295F11D300F6AD12 /* the-hero.mp3 in Resources */,
 				C30BC324295F108000F6AD12 /* Main.storyboard in Resources */,
 				C30BC31B295F108000F6AD12 /* GameScene.sks in Resources */,
+				C30BC337295F11D300F6AD12 /* balloon-game.mp3 in Resources */,
+				C30BC33D295F11D300F6AD12 /* pixelland.mp3 in Resources */,
 				C30BC326295F108100F6AD12 /* Assets.xcassets in Resources */,
 				C30BC329295F108100F6AD12 /* LaunchScreen.storyboard in Resources */,
 			);
