@@ -59,10 +59,10 @@ class GameScene: SKScene {
         headerLabel.text = "Who Forgot To Flash?"
         headerLabel.zPosition = 1
         
-        hiScoreLabel.position = CGPoint(x: -480, y: -330)
-        hiScoreLabel.horizontalAlignmentMode = .left
-        hiScoreLabel.text = "High Score: \(hiScore)"
-        hiScoreLabel.zPosition = 1
+//        hiScoreLabel.position = CGPoint(x: -480, y: -330)
+//        hiScoreLabel.horizontalAlignmentMode = .left
+//        hiScoreLabel.text = "High Score: \(hiScore)"
+//        hiScoreLabel.zPosition = 1
 
         // Background
         background.name = "background"
@@ -115,13 +115,20 @@ class GameScene: SKScene {
             
             if remainingTime <= 0 {
                 isGameRunning = false
-                gameOver.zPosition = 100
-                addChild(gameOver)
+                //gameOver.zPosition = 100
+                //addChild(gameOver)
+                
+                // DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                //     if let scene = GameScene(fileNamed: "GameScene") {
+                //         scene.scaleMode = .aspectFill
+                //         self.view?.presentScene(scene)
+                //     }
+                // }
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    if let scene = GameScene(fileNamed: "GameScene") {
-                        scene.scaleMode = .aspectFill
-                        self.view?.presentScene(scene)
+                    if let endScene = EndScene(fileNamed: "EndScene") {
+                        endScene.scaleMode = .aspectFill
+                        self.view?.presentScene(endScene)
                     }
                 }
             }
@@ -193,7 +200,7 @@ class GameScene: SKScene {
             
             if score > hiScore {
                 UserDefaults.standard.setValue(score, forKey: "hiScore")
-                hiScoreLabel.text = "High Score: \(hiScore)"
+                //hiScoreLabel.text = "High Score: \(hiScore)"
             }
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
