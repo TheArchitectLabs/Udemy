@@ -14,18 +14,36 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // MARK: - PROPERTIES
     // Images, fonts, and sounds
     let player = SKSpriteNode(imageNamed: "plane")
+    let scoreLabel = SKLabelNode(fontNamed: "Baskerville-Bold")
+    let music = SKAudioNode(fileNamed: "pixelland")
     
     // Other
     var touchingScreen = false
     var timer: Timer?
+    var score = 0 {
+        didSet {
+            scoreLabel.text = "SCORE: \(score)"
+        }
+    }
     
     // MARK: - METHODS
     override func didMove(to view: SKView) {
+        // Player
         player.position = CGPoint(x: -400, y: 250)
         player.physicsBody = SKPhysicsBody(texture: player.texture!, size: player.texture!.size())
         addChild(player)
         
         player.physicsBody?.categoryBitMask = 1
+        player.physicsBody?.collisionBitMask = 0
+        
+        // Score
+        scoreLabel.fontColor = UIColor.black.withAlphaComponent(0.5)
+        scoreLabel.position.y = 320
+        addChild(scoreLabel)
+        score = 0
+        
+        // Background Sound
+        addChild(music)
         
         physicsWorld.gravity = CGVector(dx: 0, dy: -5)
         physicsWorld.contactDelegate = self
@@ -45,6 +63,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func update(_ currentTime: TimeInterval) {
+        
+        if player.position.y > 300 {
+            player.position.y = 300
+        }
+        
         if touchingScreen {
             player.physicsBody?.velocity = CGVector(dx: 0, dy: 300)
         }
@@ -103,8 +126,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let rand = GKRandomDistribution(lowestValue: -300, highestValue: 350)
         obstacle.position.y = CGFloat(rand.nextInt())
         
-        let action = SKAction.moveTo(x: -768, duration: 9)
+        let move = SKAction.moveTo(x: -768, duration: 9)
+        let remove = SKAction.removeFromParent()
+        let action = SKAction.sequence([move, remove])
         obstacle.run(action)
+        
+        let collision = SKSpriteNode(color: .clear, size: CGSize(width: 20, height: 768))
+        collision.physicsBody = SKPhysicsBody(rectangleOf: collision.size)
+        collision.physicsBody?.contactTestBitMask = 1
+        collision.physicsBody?.isDynamic = false
+        collision.position.x = obstacle.frame.maxX
+        collision.name = "score"
+        addChild(collision)
+        collision.run(action)
     }
     
     func playerHit(_ node: SKNode) {
@@ -113,7 +147,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 explosion.position = player.position
                 addChild(explosion)
             }
+            run(SKAction.playSoundFileNamed("explosion", waitForCompletion: false))
             player.removeFromParent()
+            music.removeFromParent()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                if let scene = GameScene(fileNamed: "GameScene") {
+                    scene.scaleMode = .aspectFill
+                    self.view?.presentScene(scene)
+                }
+            }
+        } else if node.name == "score" {
+            node.removeFromParent()
+            score += 1
         }
     }
 }
