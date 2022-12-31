@@ -29,6 +29,7 @@
 		C30BC37F29606E0700F6AD12 /* mystery-bazaar.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C30BC37029606E0700F6AD12 /* mystery-bazaar.mp3 */; };
 		C30BC38029606E0700F6AD12 /* winner-winner.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C30BC37129606E0700F6AD12 /* winner-winner.mp3 */; };
 		C30BC38129606E0700F6AD12 /* match.wav in Resources */ = {isa = PBXBuildFile; fileRef = C30BC37229606E0700F6AD12 /* match.wav */; };
+		C30BC38329606FE900F6AD12 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30BC38229606FE900F6AD12 /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		C30BC37029606E0700F6AD12 /* mystery-bazaar.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "mystery-bazaar.mp3"; sourceTree = "<group>"; };
 		C30BC37129606E0700F6AD12 /* winner-winner.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "winner-winner.mp3"; sourceTree = "<group>"; };
 		C30BC37229606E0700F6AD12 /* match.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = match.wav; sourceTree = "<group>"; };
+		C30BC38229606FE900F6AD12 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				C30BC34E29606C3C00F6AD12 /* GameScene.sks */,
 				C30BC35229606C3C00F6AD12 /* GameScene.swift */,
 				C30BC35429606C3C00F6AD12 /* GameViewController.swift */,
+				C30BC38229606FE900F6AD12 /* Item.swift */,
 				C30BC36329606CCA00F6AD12 /* Sounds */,
 				C30BC35929606C3D00F6AD12 /* Assets.xcassets */,
 				C30BC35629606C3C00F6AD12 /* Main.storyboard */,
@@ -208,6 +211,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C30BC38329606FE900F6AD12 /* Item.swift in Sources */,
 				C30BC35329606C3C00F6AD12 /* GameScene.swift in Sources */,
 				C30BC35529606C3C00F6AD12 /* GameViewController.swift in Sources */,
 				C30BC34D29606C3C00F6AD12 /* AppDelegate.swift in Sources */,
@@ -364,7 +368,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -395,7 +399,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
